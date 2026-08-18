@@ -1,12 +1,27 @@
-import threads 
-import time 
 
+
+
+
+
+# hice esta version primero porque me entiendo mejor con python, ya despues busque la traduccion. 
+
+
+
+import threading
+import time
+import random
+
+N = 5
+
+
+# clase 1
 class Tenedor:
     def __init__(self, id):
         self.id = id
         self.lock = threading.Lock()
 
 
+# clase 2
 class Filosofo:
     def __init__(self, id, izquierdo, derecho):
         self.id = id
@@ -14,46 +29,99 @@ class Filosofo:
         self.derecho = derecho
 
     def piensa(self):
-        print(f"Esta pensando: {self.id} ")
-        time.sleep(1)
+        print(f"Filosofo {self.id} esta pensando")
+        time.sleep(random.uniform(0.1, 0.5))
 
     def come(self):
-        with self.izquierdo.lock:
-            print(f" {self.id} toma el tenedor {self.izquierdo.id}")
+        if self.id % 2 == 0:
+            primero = self.izquierdo
+            segundo = self.derecho
+        else:
+            primero = self.derecho
+            segundo = self.izquierdo
 
-            with self.derecho.lock:
-                print(f" {self.id} toma el tenedor {self.derecho.id}")
-                print(f" {self.id} va a comer")
-                time.sleep(1)
+        with primero.lock:
+            print(
+                f"Filosofo {self.id} toma "
+                f"el tenedor {primero.id}"
+            )
 
-        print(f" {self.id} termino de comer")
+            with segundo.lock:
+                print(
+                    f"Filosofo {self.id} toma "
+                    f"el tenedor {segundo.id}"
+                )
+
+                print(
+                    f"Filosofo {self.id} esta comiendo"
+                )
+
+                time.sleep(random.uniform(0.1, 0.5))
+
+        print(
+            f"Filosofo {self.id} termino de comer"
+        )
 
     def run(self):
         for _ in range(3):
-            self.think()
-            self.eat()
+            self.piensa()
+            self.come()
 
 
-#5 tenedores
-Tenedor = 5
-Filosofo = 5
-threads = 5
+# clase 3
+class MainApplication:
+    def __init__(self):
+        self.tenedores = []
+        self.filosofos = []
+        self.threads = []
 
-for i in range(5):
-    izquierdo = forks[i]
-    derecho = forks[(i + 1) % 5]
+    def crear_tenedores(self):
+        for i in range(N):
+            tenedor = Tenedor(i)
+            self.tenedores.append(tenedor)
 
-    Filosofo = Filosofo(i, izquierdo, derecho)
-    Filosofo.append(Filosofo)
+    def crear_filosofos(self):
+        for i in range(N):
+            izquierdo = self.tenedores[i]
+            derecho = self.tenedores[(i + 1) % N]
 
-for philosopher in philosophers:
-    thread = threading.Thread(target=philosopher.run)
-    threads.append(thread)
+            filosofo = Filosofo(
+                i,
+                izquierdo,
+                derecho
+            )
 
-for thread in threads:
-    thread.start()
-    
-for thread in threads:
-    thread.join()
+            self.filosofos.append(filosofo)
 
-print("Todos los filósofos terminaron.")
+    def crear_threads(self):
+        for filosofo in self.filosofos:
+            thread = threading.Thread(
+                target=filosofo.run
+            )
+
+            self.threads.append(thread)
+
+    def iniciar_threads(self):
+        for thread in self.threads:
+            thread.start()
+
+    def esperar_threads(self):
+        for thread in self.threads:
+            thread.join()
+
+    def ejecutar(self):
+        print("Iniciando la cena de los filosofos...\n")
+
+        self.crear_tenedores()
+        self.crear_filosofos()
+        self.crear_threads()
+        self.iniciar_threads()
+        self.esperar_threads()
+
+        print("\nTodos los filosofos terminaron.")
+
+
+# inicia
+if __name__ == "__main__":
+    app = MainApplication()
+    app.ejecutar()

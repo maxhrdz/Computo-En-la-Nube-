@@ -1,0 +1,15 @@
+/Users/maximilianohernandez/Computo En La Nube Codigos /bin/Debug/net8.0/Computo En La Nube Codigos
+/Users/maximilianohernandez/Computo En La Nube Codigos /bin/Debug/net8.0/Computo En La Nube Codigos.deps.json
+/Users/maximilianohernandez/Computo En La Nube Codigos /bin/Debug/net8.0/Computo En La Nube Codigos.runtimeconfig.json
+/Users/maximilianohernandez/Computo En La Nube Codigos /bin/Debug/net8.0/Computo En La Nube Codigos.dll
+/Users/maximilianohernandez/Computo En La Nube Codigos /bin/Debug/net8.0/Computo En La Nube Codigos.pdb
+/Users/maximilianohernandez/Computo En La Nube Codigos /obj/Debug/net8.0/Computo En La Nube Codigos.GeneratedMSBuildEditorConfig.editorconfig
+/Users/maximilianohernandez/Computo En La Nube Codigos /obj/Debug/net8.0/Computo En La Nube Codigos.AssemblyInfoInputs.cache
+/Users/maximilianohernandez/Computo En La Nube Codigos /obj/Debug/net8.0/Computo En La Nube Codigos.AssemblyInfo.cs
+/Users/maximilianohernandez/Computo En La Nube Codigos /obj/Debug/net8.0/Computo En La Nube Codigos.csproj.CoreCompileInputs.cache
+/Users/maximilianohernandez/Computo En La Nube Codigos /obj/Debug/net8.0/Computo En La Nube Codigos.sourcelink.json
+/Users/maximilianohernandez/Computo En La Nube Codigos /obj/Debug/net8.0/Computo En La Nube Codigos.dll
+/Users/maximilianohernandez/Computo En La Nube Codigos /obj/Debug/net8.0/refint/Computo En La Nube Codigos.dll
+/Users/maximilianohernandez/Computo En La Nube Codigos /obj/Debug/net8.0/Computo En La Nube Codigos.pdb
+/Users/maximilianohernandez/Computo En La Nube Codigos /obj/Debug/net8.0/Computo En La Nube Codigos.genruntimeconfig.cache
+/Users/maximilianohernandez/Computo En La Nube Codigos /obj/Debug/net8.0/ref/Computo En La Nube Codigos.dll
